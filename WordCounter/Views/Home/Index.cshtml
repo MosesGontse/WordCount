@@ -1,0 +1,33 @@
+﻿@model  Dictionary<string, int>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@foreach (var item in Model.Where(word => word.Key.Equals("war") || word.Key.Equals("peace")))
+{
+    <p>The word <strong> "@item.Key"</strong> appeared <strong> @item.Value </strong> times</p>
+}
+
+<h2>War & Peace Word count(@Model.Values.Sum())</h2>
+
+@* Display data in a data table tha has been initialized in site.js *@
+    <table id="data_table" class="display">
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Key</td>
+                    <td>@item.Value</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
