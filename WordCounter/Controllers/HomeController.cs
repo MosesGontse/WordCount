@@ -50,6 +50,7 @@ namespace WordCounter.Controllers
         }
         public string RemoveSpecialCharacters(string str)
         {
+            //Remove everytning from string except alphanumeric chars
             return  Regex.Replace(str, @"[^0-9a-zA-Z]+", "");
         }
     }
